@@ -76,3 +76,13 @@ export function onOff(el: Element | null | undefined): boolean | null {
   if (v == null) return true;
   return !(v === '0' || v === 'false' || v === 'off' || v === 'none');
 }
+
+/** Atributo r:xxx (espacio de nombres de relaciones de OOXML). */
+export function relAttr(el: Element | null | undefined, localName: string): string | null {
+  if (!el) return null;
+  for (let i = 0; i < el.attributes.length; i++) {
+    const a = el.attributes[i];
+    if (a.localName === localName && (a.namespaceURI ?? '').endsWith('/relationships')) return a.value;
+  }
+  return null;
+}

@@ -1,0 +1,98 @@
+:root {
+  --font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Ubuntu, Cantarell, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --accent: #4f46e5;
+  --accent-strong: #4338ca;
+  --accent-soft: #eef0ff;
+  --on-accent: #ffffff;
+
+  --scribe: #2563eb;
+  --scribe-soft: #e8f0ff;
+  --grid: #059669;
+  --grid-soft: #e3f7ef;
+  --stage: #ea580c;
+  --stage-soft: #fff0e6;
+  --folio: #e11d48;
+  --folio-soft: #ffe8ee;
+
+  --bg: #f7f7fb;
+  --bg-elevated: #ffffff;
+  --bg-sunken: #efeff5;
+  --surface: #ffffff;
+  --surface-hover: #f1f1f7;
+  --surface-active: #e6e6f0;
+  --border: #e3e3ec;
+  --border-strong: #cfcfdc;
+  --text: #1b1b25;
+  --text-muted: #5f6072;
+  --text-faint: #8b8c9c;
+  --danger: #dc2626;
+  --danger-soft: #fdecec;
+  --warning: #b45309;
+  --warning-soft: #fff4e0;
+  --success: #15803d;
+  --success-soft: #e7f7ec;
+  --focus: #6366f1;
+  --shadow-sm: 0 1px 2px rgba(20, 20, 40, 0.06), 0 1px 3px rgba(20, 20, 40, 0.05);
+  --shadow: 0 4px 14px rgba(20, 20, 40, 0.08), 0 1px 3px rgba(20, 20, 40, 0.06);
+  --shadow-lg: 0 18px 50px rgba(20, 20, 40, 0.18), 0 4px 12px rgba(20, 20, 40, 0.08);
+  --page-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
+  --canvas-bg: #ececf3;
+
+  --sidebar-w: 240px;
+  --header-h: 56px;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --accent: #818cf8;
+  --accent-strong: #a5b4fc;
+  --accent-soft: #272a4a;
+  --on-accent: #0f1020;
+
+  --scribe: #60a5fa;
+  --scribe-soft: #1c2a44;
+  --grid: #34d399;
+  --grid-soft: #15302a;
+  --stage: #fb923c;
+  --stage-soft: #3a2518;
+  --folio: #fb7185;
+  --folio-soft: #3a1c25;
+
+  --bg: #13131a;
+  --bg-elevated: #1c1c25;
+  --bg-sunken: #0e0e14;
+  --surface: #1e1e28;
+  --surface-hover: #282833;
+  --surface-active: #32323f;
+  --border: #2d2d3a;
+  --border-strong: #3d3d4d;
+  --text: #ececf3;
+  --text-muted: #a5a6b8;
+  --text-faint: #75768a;
+  --danger: #f87171;
+  --danger-soft: #3b1d1d;
+  --warning: #fbbf24;
+  --warning-soft: #3a2e14;
+  --success: #4ade80;
+  --success-soft: #16301f;
+  --focus: #a5b4fc;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.6);
+  --page-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --canvas-bg: #0f0f15;
+  color-scheme: dark;
+}
+
+.accent-scribe { --app: var(--scribe); --app-soft: var(--scribe-soft); }
+.accent-grid { --app: var(--grid); --app-soft: var(--grid-soft); }
+.accent-stage { --app: var(--stage); --app-soft: var(--stage-soft); }
+.accent-folio { --app: var(--folio); --app-soft: var(--folio-soft); }

@@ -419,10 +419,22 @@ export class SheetController {
         for (let rr = Math.max(0, r1 - 1); rr <= r2 + 1; rr++) if (has(rr, cc)) return true;
         return false;
       };
-      if (r1 > 0 && rowHas(r1 - 1)) (range.r1 = r1 - 1), (grew = true);
-      if (rowHas(r2 + 1)) (range.r2 = r2 + 1), (grew = true);
-      if (c1 > 0 && colHas(c1 - 1)) (range.c1 = c1 - 1), (grew = true);
-      if (colHas(c2 + 1)) (range.c2 = c2 + 1), (grew = true);
+      if (r1 > 0 && rowHas(r1 - 1)) {
+        range.r1 = r1 - 1;
+        grew = true;
+      }
+      if (rowHas(r2 + 1)) {
+        range.r2 = r2 + 1;
+        grew = true;
+      }
+      if (c1 > 0 && colHas(c1 - 1)) {
+        range.c1 = c1 - 1;
+        grew = true;
+      }
+      if (colHas(c2 + 1)) {
+        range.c2 = c2 + 1;
+        grew = true;
+      }
       range = { ...range };
     }
     return range;

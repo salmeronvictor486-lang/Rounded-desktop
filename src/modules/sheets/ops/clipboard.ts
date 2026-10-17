@@ -136,7 +136,7 @@ export function parseHtmlTable(html: string): string[][] | null {
   table.querySelectorAll('tr').forEach((tr) => {
     const row: string[] = [];
     tr.querySelectorAll('td,th').forEach((td) => {
-      row.push((td.textContent ?? '').replace(/ /g, ' ').trim());
+      row.push((td.textContent ?? '').replace(/\u00a0/g, ' ').trim());
       const span = Number(td.getAttribute('colspan') ?? 1);
       for (let i = 1; i < span; i++) row.push('');
     });

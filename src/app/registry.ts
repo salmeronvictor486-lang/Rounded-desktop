@@ -3,12 +3,13 @@ import type { AppModule } from './types';
 import { writerModule } from '@/modules/writer/module';
 import { sheetsModule } from '@/modules/sheets/module';
 import { slidesModule } from '@/modules/slides/module';
+import { pdfModule } from '@/modules/pdf/module';
 
 /**
  * Registro de aplicaciones. Para añadir un módulo nuevo (p. ej. Rounded Forms)
  * basta con crear su AppModule y añadirlo aquí.
  */
-export const MODULES: AppModule<any>[] = [writerModule, sheetsModule, slidesModule];
+export const MODULES: AppModule<any>[] = [writerModule, sheetsModule, slidesModule, pdfModule];
 
 export function moduleFor(kind: FileKind): AppModule<any> {
   const m = MODULES.find((x) => x.kind === kind);

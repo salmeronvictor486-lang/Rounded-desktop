@@ -1,0 +1,126 @@
+import type { TemplateDef } from '../types';
+import type { Workbook } from '@/modules/sheets/model';
+import { buildWorkbook, EUR, HEADER, PCT, TITLE, TOTAL } from './builder';
+
+export const templates: TemplateDef<Workbook>[] = [
+  {
+    id: 'sheet-presupuesto-personal',
+    kind: 'spreadsheet',
+    name: 'Presupuesto personal mensual',
+    category: 'Finanzas',
+    description: 'Ingresos y gastos por categoría con totales, ahorro y gráfico automáticos.',
+    documentName: 'Presupuesto personal',
+    build: () =>
+      buildWorkbook([
+        {
+          name: 'Presupuesto',
+          rows: [
+            [{ v: 'Presupuesto mensual', s: TITLE }],
+            [],
+            ['Ingresos', 'Previsto', 'Real', 'Diferencia'],
+            ['Nómina', 1800, 1800, '=C4-B4'],
+            ['Otros ingresos', 150, 90, '=C5-B5'],
+            [{ v: 'Total ingresos', s: TOTAL }, { f: '=SUM(B4:B5)', s: { ...TOTAL, ...EUR } }, { f: '=SUM(C4:C5)', s: { ...TOTAL, ...EUR } }, { f: '=C6-B6', s: { ...TOTAL, ...EUR } }],
+            [],
+            ['Gastos', 'Previsto', 'Real', 'Diferencia'],
+            ['Vivienda', 650, 650, '=B9-C9'],
+            ['Alimentación', 300, 342, '=B10-C10'],
+            ['Transporte', 90, 75, '=B11-C11'],
+            ['Suministros', 120, 131, '=B12-C12'],
+            ['Ocio', 150, 120, '=B13-C13'],
+            ['Otros', 80, 64, '=B14-C14'],
+            [{ v: 'Total gastos', s: TOTAL }, { f: '=SUM(B9:B14)', s: { ...TOTAL, ...EUR } }, { f: '=SUM(C9:C14)', s: { ...TOTAL, ...EUR } }, { f: '=B15-C15', s: { ...TOTAL, ...EUR } }],
+            [],
+            [{ v: 'Ahorro del mes', s: { bold: true } }, null, { f: '=C6-C15', s: { bold: true, ...EUR } }],
+            [{ v: 'Tasa de ahorro', s: { bold: true } }, null, { f: '=IF(C6>0,C17/C6,0)', s: { bold: true, ...PCT } }],
+          ],
+          styles: [['A3:D3', HEADER], ['A8:D8', HEADER], ['B4:D5', EUR], ['B9:D14', EUR]],
+          widths: { A: 170, B: 110, C: 110, D: 110 },
+          conditional: [
+            { range: 'D9:D14', type: 'lt', values: ['0'], style: { color: '#b91c1c', bold: true } },
+            { range: 'D9:D14', type: 'gte', values: ['0'], style: { color: '#15803d' } },
+          ],
+          charts: [{ type: 'column', range: 'A8:C14', title: 'Gastos: previsto frente a real', x: 470, y: 30, w: 440, h: 300, headers: true, seriesIn: 'columns', legend: true }],
+        },
+      ]),
+  },
+  {
+    id: 'sheet-gastos',
+    kind: 'spreadsheet',
+    name: 'Control de gastos',
+    category: 'Finanzas',
+    description: 'Registro de gastos con categorías desplegables, filtro, resumen por categoría (SUMAR.SI) y gráfico.',
+    documentName: 'Control de gastos',
+    build: () =>
+      buildWorkbook([
+        {
+          name: 'Gastos',
+          rows: [
+            ['Fecha', 'Concepto', 'Categoría', 'Importe'],
+            [{ v: 45931, s: { numFmt: 'dd/mm/yyyy' } }, 'Supermercado', 'Alimentación', 54.2],
+            [{ v: 45933, s: { numFmt: 'dd/mm/yyyy' } }, 'Abono transporte', 'Transporte', 40],
+            [{ v: 45936, s: { numFmt: 'dd/mm/yyyy' } }, 'Cine', 'Ocio', 18.5],
+            [{ v: 45940, s: { numFmt: 'dd/mm/yyyy' } }, 'Luz', 'Suministros', 63.1],
+            [{ v: 45944, s: { numFmt: 'dd/mm/yyyy' } }, 'Restaurante', 'Ocio', 42],
+            [{ v: 45947, s: { numFmt: 'dd/mm/yyyy' } }, 'Frutería', 'Alimentación', 21.3],
+          ],
+          styles: [['A1:D1', HEADER], ['D2:D200', EUR], ['A2:A200', { numFmt: 'dd/mm/yyyy' }]],
+          widths: { A: 100, B: 200, C: 140, D: 100 },
+          freeze: { rows: 1, cols: 0 },
+          filter: 'A1:D7',
+          validations: [{ range: 'C2:C200', type: 'list', values: ['Alimentación', 'Transporte', 'Ocio', 'Suministros', 'Vivienda', 'Otros'], allowBlank: true, strict: true }],
+        },
+        {
+          name: 'Resumen',
+          rows: [
+            ['Categoría', 'Total', '% del gasto'],
+            ['Alimentación', "=SUMIF(Gastos!C:C,A2,Gastos!D:D)", '=IF($B$8>0,B2/$B$8,0)'],
+            ['Transporte', "=SUMIF(Gastos!C:C,A3,Gastos!D:D)", '=IF($B$8>0,B3/$B$8,0)'],
+            ['Ocio', "=SUMIF(Gastos!C:C,A4,Gastos!D:D)", '=IF($B$8>0,B4/$B$8,0)'],
+            ['Suministros', "=SUMIF(Gastos!C:C,A5,Gastos!D:D)", '=IF($B$8>0,B5/$B$8,0)'],
+            ['Vivienda', "=SUMIF(Gastos!C:C,A6,Gastos!D:D)", '=IF($B$8>0,B6/$B$8,0)'],
+            ['Otros', "=SUMIF(Gastos!C:C,A7,Gastos!D:D)", '=IF($B$8>0,B7/$B$8,0)'],
+            [{ v: 'Total', s: TOTAL }, { f: '=SUM(B2:B7)', s: { ...TOTAL, ...EUR } }, { f: '=SUM(C2:C7)', s: { ...TOTAL, ...PCT } }],
+          ],
+          styles: [['A1:C1', HEADER], ['B2:B7', EUR], ['C2:C7', PCT]],
+          widths: { A: 150, B: 110, C: 110 },
+          conditional: [{ range: 'B2:B7', type: 'colorScale', values: [], style: {}, colors: ['#ecfdf5', '#059669'] }],
+          charts: [{ type: 'bar', range: 'A1:B7', title: 'Gasto por categoría', x: 380, y: 10, w: 420, h: 280, headers: true, seriesIn: 'columns', legend: false }],
+        },
+      ]),
+  },
+  {
+    id: 'sheet-factura',
+    kind: 'spreadsheet',
+    name: 'Factura con cálculo automático',
+    category: 'Facturas y presupuestos',
+    description: 'Factura con importes, base imponible, IVA y total calculados por fórmulas.',
+    documentName: 'Factura',
+    build: () =>
+      buildWorkbook([
+        {
+          name: 'Factura',
+          rows: [
+            [{ v: 'FACTURA', s: { ...TITLE, color: '#0f766e', fontSize: 22 } }, null, null, { v: 'Nº', s: { bold: true, hAlign: 'right' } }, '2025-001'],
+            ['Tu Empresa S.L. · NIF B00000000', null, null, { v: 'Fecha', s: { bold: true, hAlign: 'right' } }, { f: '=TODAY()', s: { numFmt: 'dd/mm/yyyy' } }],
+            ['Calle Ejemplo 1, Ciudad'],
+            [],
+            [{ v: 'Cliente', s: { bold: true } }, 'Nombre del cliente · NIF · Dirección'],
+            [],
+            ['Descripción', 'Cantidad', 'Precio', 'Descuento', 'Importe'],
+            ['Servicio de consultoría', 10, 50, 0, '=B8*C8*(1-D8)'],
+            ['Diseño gráfico', 1, 300, 0.1, '=B9*C9*(1-D9)'],
+            ['Mantenimiento mensual', 3, 45, 0, '=B10*C10*(1-D10)'],
+            [null, null, null, null, '=IF(B11="","",B11*C11*(1-D11))'],
+            [],
+            [null, null, null, { v: 'Base imponible', s: { bold: true } }, { f: '=SUM(E8:E11)', s: EUR }],
+            [null, null, null, { v: 'IVA', s: { bold: true } }, { v: 0.21, s: PCT }],
+            [null, null, null, { v: 'Cuota IVA', s: { bold: true } }, { f: '=E13*E14', s: EUR }],
+            [null, null, null, { v: 'TOTAL', s: TOTAL }, { f: '=E13+E15', s: { ...TOTAL, ...EUR, fontSize: 14 } }],
+          ],
+          styles: [['A7:E7', HEADER], ['C8:C11', EUR], ['D8:D11', PCT], ['E8:E11', EUR]],
+          widths: { A: 240, B: 80, C: 100, D: 120, E: 120 },
+        },
+      ]),
+  },
+];

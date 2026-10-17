@@ -7,14 +7,15 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -b",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "test:interop": "vitest run --config vitest.interop.config.ts"
+    "test:interop": "vitest run --config vitest.interop.config.ts",
+    "icons": "node scripts/generate-icons.mjs"
   },
   "dependencies": {
     "@tiptap/core": "^3.32.0",
@@ -39,7 +40,7 @@
     "lucide-react": "^1.59.0",
     "papaparse": "^5.7.0",
     "pdf-lib": "^1.17.1",
-    "pdfjs-dist": "^6.4.299",
+    "pdfjs-dist": "^5.4.296",
     "pptxgenjs": "^4.0.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

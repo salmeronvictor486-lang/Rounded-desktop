@@ -73,7 +73,7 @@ function validDate(y: number, m: number, d: number): boolean {
 
 /** Convierte una cadena con separadores locales a número, o null. */
 export function parseLocaleNumber(s: string): number | null {
-  const t = s.trim().replace(/\s/g, '').replace(/ /g, '');
+  const t = s.trim().replace(/\s/g, '').replace(/\u00a0/g, '');
   if (!t) return null;
   const loc = getLocale();
   if (/^[+-]?\d+$/.test(t)) return Number(t);

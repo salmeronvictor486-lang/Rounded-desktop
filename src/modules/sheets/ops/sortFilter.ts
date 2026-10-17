@@ -32,7 +32,7 @@ export function sortRange(ctl: SheetController, range: RangeAddr, keys: { col: n
     const target = start + i;
     row.cells.forEach((cell, j) => {
       const c = range.c1 + j;
-      let next = cell ? { ...cell } : undefined;
+      const next = cell ? { ...cell } : undefined;
       if (next?.f !== undefined && target !== row.r) next.f = shiftFormula(next.f, target - row.r, 0);
       updates.set(cellKey(target, c), next);
     });

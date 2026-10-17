@@ -28,7 +28,7 @@ const COL_RE = /^(\$?)([A-Za-z]{1,3})(?![A-Za-z0-9_(])/;
 const ROW_RE = /^(\$?)(\d{1,7})/;
 
 function parseRefPart(s: string): { part: RefPart; len: number } | null {
-  let m = CELL_RE.exec(s);
+  const m = CELL_RE.exec(s);
   if (m) {
     const row = Number(m[4]) - 1;
     const col = lettersToCol(m[2]);

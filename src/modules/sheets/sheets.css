@@ -11,7 +11,7 @@
 .grid-canvas { position: relative; }
 .layer-body { position: absolute; left: 0; top: 0; }
 .layer-top { position: sticky; top: 0; height: 0; z-index: 4; }
-.layer-left { position: sticky; left: 0; width: 0; z-index: 3; margin-top: 0; }
+.layer-left { position: sticky; left: 0; width: 0; height: 0; z-index: 3; }
 .layer-corner { position: sticky; top: 0; left: 0; width: 0; height: 0; z-index: 5; }
 .layer-top .band, .layer-left .band, .layer-corner .band { position: absolute; left: 0; top: 0; overflow: hidden; pointer-events: none; }
 .layer-top .band > *, .layer-left .band > *, .layer-corner .band > * { pointer-events: auto; }

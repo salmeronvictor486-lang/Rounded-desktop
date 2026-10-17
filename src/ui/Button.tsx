@@ -41,7 +41,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
       className={`icon-btn ${active ? 'is-active' : ''} ${className}`}
       aria-label={label}
       title={label}
-      aria-pressed={active === undefined ? undefined : active}
+      aria-pressed={active === undefined || rest.role === 'radio' ? undefined : active}
       {...rest}
     >
       <Icon size={size} aria-hidden="true" />

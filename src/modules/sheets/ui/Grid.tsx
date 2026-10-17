@@ -551,7 +551,7 @@ export function Grid(props: Props) {
             </div>
           </div>
           {/* Columnas inmovilizadas + encabezados de fila */}
-          <div className="layer-left" style={{ height: canvasH }}>
+          <div className="layer-left">
             <div className="band" style={{ width: bandW, height: canvasH }}>
               {fc > 0 && renderCells(vis.r1, vis.r2, 0, fc - 1)}
               {fc > 0 && selection}

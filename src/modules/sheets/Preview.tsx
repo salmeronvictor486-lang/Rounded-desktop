@@ -3,6 +3,7 @@ import { SheetController } from './controller';
 import { cellDisplay } from './ops/display';
 import { DEFAULT_COL_WIDTH, type Workbook } from './model';
 import { colToLetters } from './engine/address';
+import './sheets.css';
 
 /** Miniatura de la primera hoja (primeras filas y columnas). */
 export default function SheetsPreview({ content }: { content: Workbook }) {

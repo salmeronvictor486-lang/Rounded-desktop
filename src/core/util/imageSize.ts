@@ -39,7 +39,7 @@ export function imageSize(bytes: Uint8Array): { width: number; height: number; t
   if (/<svg[\s>]/i.test(head)) {
     const w = /\swidth="([\d.]+)(px)?"/i.exec(head);
     const h = /\sheight="([\d.]+)(px)?"/i.exec(head);
-    const vb = /viewBox="[\d.\-]+[ ,]+[\d.\-]+[ ,]+([\d.]+)[ ,]+([\d.]+)"/i.exec(head);
+    const vb = /viewBox="[\d.-]+[ ,]+[\d.-]+[ ,]+([\d.]+)[ ,]+([\d.]+)"/i.exec(head);
     const width = w ? parseFloat(w[1]) : vb ? parseFloat(vb[1]) : 300;
     const height = h ? parseFloat(h[1]) : vb ? parseFloat(vb[2]) : 150;
     return { width, height, type: 'svg' };

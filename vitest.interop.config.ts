@@ -1,15 +1,16 @@
-import { defineConfig, mergeConfig } from 'vitest/config';
-import base from './vite.config';
+import { defineConfig } from 'vitest/config';
+import { fileURLToPath, URL } from 'node:url';
 
 // Pruebas de interoperabilidad: usan LibreOffice y bibliotecas de Python
 // (python-docx, openpyxl, python-pptx) como implementaciones independientes.
-export default mergeConfig(
-  base,
-  defineConfig({
-    test: {
-      include: ['tests/interop/**/*.test.ts'],
-      testTimeout: 120000,
-      hookTimeout: 120000,
-    },
-  }),
-);
+export default defineConfig({
+  resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
+  test: {
+    environment: 'jsdom',
+    include: ['tests/interop/**/*.test.ts'],
+    setupFiles: ['tests/unit/setup.ts'],
+    testTimeout: 180000,
+    hookTimeout: 180000,
+    fileParallelism: false,
+  },
+});

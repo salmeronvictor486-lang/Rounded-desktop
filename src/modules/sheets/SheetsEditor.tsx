@@ -62,7 +62,13 @@ export default function SheetsEditor({ session }: EditorProps<Workbook>) {
   const activeCell = ctl.getCell(sel.r, sel.c);
   const activeStyle = ctl.styleOf(activeCell);
 
-  const focusGrid = () => requestAnimationFrame(() => gridRef.current?.focus({ preventScroll: true }));
+  // El foco se mueve en el acto: si se aplazara, las teclas pulsadas mientras tanto (al escribir rápido) se perderían.
+  const focusGrid = () => {
+    gridRef.current?.focus({ preventScroll: true });
+    requestAnimationFrame(() => {
+      if (document.activeElement === document.body) gridRef.current?.focus({ preventScroll: true });
+    });
+  };
 
   const commitEdit = useCallback(
     (move: { dr: number; dc: number } | null, opts: { fillSelection?: boolean } = {}) => {

@@ -19,29 +19,47 @@ export type MenuItem =
 
 interface MenuListProps {
   items: MenuItem[];
-  anchor: { x: number; y: number; alignRight?: boolean; anchorRect?: DOMRect };
+  /** `parentItem`: elemento que abre este submenú; el submenú nunca lo tapa. */
+  anchor: { x: number; y: number; alignRight?: boolean; anchorRect?: DOMRect; parentItem?: DOMRect };
   onClose: () => void;
+  /** Cierra toda la cascada de menús (al elegir una opción dentro de un submenú). */
+  onCloseAll?: () => void;
   level?: number;
   label?: string;
 }
 
 /** Lista de menú flotante con navegación por teclado (flechas, Inicio/Fin, Enter, Escape). */
-export function MenuList({ items, anchor, onClose, level = 0, label }: MenuListProps) {
+export function MenuList({ items, anchor, onClose, onCloseAll, level = 0, label }: MenuListProps) {
+  const closeAll = onCloseAll ?? onClose;
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ left: anchor.x, top: anchor.y });
   const [openSub, setOpenSub] = useState<number | null>(null);
-  const [subAnchor, setSubAnchor] = useState<{ x: number; y: number } | null>(null);
+  const [subAnchor, setSubAnchor] = useState<MenuListProps['anchor'] | null>(null);
 
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
     let left = anchor.alignRight ? anchor.x - r.width : anchor.x;
     let top = anchor.y;
-    if (left + r.width > window.innerWidth - 8) left = Math.max(8, window.innerWidth - r.width - 8);
+    const item = anchor.parentItem;
+    if (item && left + r.width > vw - 8) {
+      // Submenú sin sitio a la derecha: a la izquierda del elemento padre, o (pantallas estrechas)
+      // debajo o encima de él, para que un toque no caiga sobre una opción del submenú recién abierto.
+      if (item.left - r.width + 4 >= 8) left = item.left - r.width + 4;
+      else {
+        left = Math.min(Math.max(8, item.left + 12), Math.max(8, vw - r.width - 8));
+        if (item.bottom + 2 + r.height <= vh - 8) top = item.bottom + 2;
+        else if (item.top - 2 - r.height >= 8) top = item.top - 2 - r.height;
+        else top = item.bottom + 2;
+      }
+    }
+    if (left + r.width > vw - 8) left = Math.max(8, vw - r.width - 8);
     if (left < 8) left = 8;
-    if (top + r.height > window.innerHeight - 8) {
-      top = anchor.anchorRect ? anchor.anchorRect.top - r.height - 4 : window.innerHeight - r.height - 8;
+    if (top + r.height > vh - 8) {
+      top = anchor.anchorRect ? anchor.anchorRect.top - r.height - 4 : vh - r.height - 8;
       if (top < 8) top = 8;
     }
     setPos({ left, top });
@@ -77,7 +95,7 @@ export function MenuList({ items, anchor, onClose, level = 0, label }: MenuListP
       e.stopPropagation();
       onClose();
     } else if (e.key === 'Tab') {
-      onClose();
+      closeAll();
     }
   };
 
@@ -99,12 +117,13 @@ export function MenuList({ items, anchor, onClose, level = 0, label }: MenuListP
         const activate = (el: HTMLElement) => {
           if (item.disabled) return;
           if (hasSub) {
+            if (openSub === i) return;
             const r = el.getBoundingClientRect();
-            setSubAnchor({ x: r.right - 4, y: r.top });
+            setSubAnchor({ x: r.right - 4, y: r.top, parentItem: r });
             setOpenSub(i);
             return;
           }
-          onClose();
+          closeAll();
           item.onSelect?.();
         };
         return (
@@ -117,7 +136,10 @@ export function MenuList({ items, anchor, onClose, level = 0, label }: MenuListP
             aria-expanded={hasSub ? openSub === i : undefined}
             tabIndex={-1}
             className={`menu-item ${item.danger ? 'is-danger' : ''} ${item.disabled ? 'is-disabled' : ''}`}
-            onClick={(e) => activate(e.currentTarget)}
+            onClick={(e) => {
+              e.stopPropagation();
+              activate(e.currentTarget);
+            }}
             onMouseEnter={(e) => {
               if (hasSub) activate(e.currentTarget);
               else setOpenSub(null);
@@ -125,6 +147,7 @@ export function MenuList({ items, anchor, onClose, level = 0, label }: MenuListP
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ' || (e.key === 'ArrowRight' && hasSub)) {
                 e.preventDefault();
+                e.stopPropagation();
                 activate(e.currentTarget);
               }
             }}
@@ -140,6 +163,7 @@ export function MenuList({ items, anchor, onClose, level = 0, label }: MenuListP
                 items={item.submenu!}
                 anchor={subAnchor}
                 level={level + 1}
+                onCloseAll={closeAll}
                 onClose={() => {
                   setOpenSub(null);
                   (ref.current?.children[i] as HTMLElement | undefined)?.focus();

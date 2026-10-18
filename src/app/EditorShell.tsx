@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { AlertTriangle, ArrowLeft, Check, CloudOff, Copy, FilePlus2, History, Loader2, Pencil, Save, Trash2 } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, Check, CloudOff, Copy, FilePlus2, History, Loader2, Menu as MenuIcon, Pencil, Save, Trash2 } from 'lucide-react';
 import { BRAND } from '@/config/brand';
 import { repository } from '@/core/storage/repository';
 import type { SaveStatus } from '@/core/storage/autosave';
@@ -160,6 +160,14 @@ export function EditorShell({ menus, actions, toolbar, children, versionsOpen, o
             ))}
           </nav>
         </div>
+        {/* En pantallas estrechas la barra de menús se oculta y sus menús se agrupan aquí */}
+        <MenuButton
+          className="icon-btn mobile-menu-btn"
+          label="Menú"
+          items={() => menus.map((m) => ({ label: m.label, submenu: typeof m.items === 'function' ? m.items() : m.items }))}
+        >
+          <MenuIcon size={18} />
+        </MenuButton>
         <SaveStatusIndicator status={ctx.status} />
         <div className="spacer" />
         {actions}

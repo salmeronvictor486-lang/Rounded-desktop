@@ -105,6 +105,7 @@
 .title-input:hover { border-color: var(--border); }
 .title-input:focus { border-color: var(--focus); outline: none; background: var(--bg); }
 .menubar { display: flex; gap: 0; }
+.mobile-menu-btn { display: none; }
 .menubar-btn { border: none; background: none; padding: 1px 7px; border-radius: 5px; font-size: 13px; color: var(--text-muted); }
 .menubar-btn:hover, .menubar-btn[aria-expanded='true'] { background: var(--surface-hover); color: var(--text); }
 .save-status { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text-muted); white-space: nowrap; padding: 4px 10px; border-radius: 999px; }
@@ -124,6 +125,7 @@
   .file-row { grid-template-columns: minmax(0, 1fr) 40px; }
   .file-row .file-meta { display: none; }
   .menubar { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
   .editor-header .hide-mobile { display: none; }
   .side-panel { position: absolute; right: 0; top: 0; bottom: 0; z-index: 50; box-shadow: var(--shadow-lg); width: min(320px, 90vw); }
 }

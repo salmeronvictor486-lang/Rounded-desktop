@@ -455,7 +455,8 @@ export async function exportDocx(input: WriterContent, title = 'Documento'): Pro
         properties: {
           titlePage: page.differentFirstPage,
           page: {
-            size: { width: twip(dims.width), height: twip(dims.height), orientation: page.orientation === 'landscape' ? PageOrientation.LANDSCAPE : PageOrientation.PORTRAIT },
+            // La biblioteca docx intercambia ancho y alto cuando la orientación es horizontal: se pasa el tamaño vertical.
+            size: { width: twip(Math.min(dims.width, dims.height)), height: twip(Math.max(dims.width, dims.height)), orientation: page.orientation === 'landscape' ? PageOrientation.LANDSCAPE : PageOrientation.PORTRAIT },
             margin: { top: twip(page.margins.top), right: twip(page.margins.right), bottom: twip(page.margins.bottom), left: twip(page.margins.left), header: 708, footer: 708 },
           },
           column: page.columns > 1 ? { count: page.columns, space: twip(page.columnGap), equalWidth: true } : undefined,

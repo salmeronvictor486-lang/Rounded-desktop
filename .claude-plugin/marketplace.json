@@ -1,0 +1,21 @@
+{
+  "name": "rounded",
+  "owner": {
+    "name": "salmeronvictor486-lang",
+    "url": "https://github.com/salmeronvictor486-lang"
+  },
+  "metadata": {
+    "description": "Rounded: agents, skills, commands, rules and safety hooks for AI coding agents."
+  },
+  "plugins": [
+    {
+      "name": "rounded",
+      "source": "./",
+      "description": "Specialist agents, skills, slash commands and safety hooks for planning, TDD, code review, security and shipping.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "category": "development",
+      "keywords": ["agents", "skills", "hooks", "commands", "tdd", "code-review", "security"]
+    }
+  ]
+}

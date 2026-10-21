@@ -1,0 +1,13 @@
+{
+  "name": "rounded",
+  "version": "0.1.0",
+  "description": "A well-rounded toolkit for AI coding agents: specialist agents, skills, slash commands and safety hooks for planning, TDD, code review, security and shipping.",
+  "author": {
+    "name": "salmeronvictor486-lang",
+    "url": "https://github.com/salmeronvictor486-lang"
+  },
+  "homepage": "https://github.com/salmeronvictor486-lang/Rounded-desktop",
+  "repository": "https://github.com/salmeronvictor486-lang/Rounded-desktop",
+  "license": "MIT",
+  "keywords": ["agents", "skills", "hooks", "commands", "tdd", "code-review", "security", "workflow"]
+}

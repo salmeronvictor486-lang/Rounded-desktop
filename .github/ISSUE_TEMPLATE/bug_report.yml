@@ -1,0 +1,30 @@
+name: Bug report
+description: Something in Rounded does not work as documented
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Rounded version
+      placeholder: "0.1.0 (rounded --version)"
+    validations:
+      required: true
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Coding tool
+      options: [Claude Code (plugin), Claude Code (installer), Codex CLI, Cursor, Gemini CLI, OpenCode, Not tool-specific]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you ran or asked, what happened, and what you expected. Include `rounded doctor` output for installer problems.
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: OS and Node.js version
+      placeholder: "macOS 15, Node 22.11"

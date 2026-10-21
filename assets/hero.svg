@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="t d">
+  <title id="t">Rounded</title>
+  <desc id="d">Rounded: agents, skills, commands, rules and safety hooks for AI coding agents</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#134e4a"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="400" rx="40" fill="url(#bg)"/>
+  <g transform="translate(150 200)">
+    <circle r="92" fill="none" stroke="url(#ring)" stroke-width="22"/>
+    <circle r="46" fill="#5eead4" opacity="0.18"/>
+    <circle cx="0" cy="-92" r="15" fill="#5eead4"/>
+    <circle cx="80" cy="46" r="15" fill="#a78bfa"/>
+    <circle cx="-80" cy="46" r="15" fill="#f0abfc"/>
+  </g>
+  <text x="300" y="185" fill="#f8fafc" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="96" font-weight="700" letter-spacing="-2">Rounded</text>
+  <text x="304" y="245" fill="#99f6e4" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="32">A well-rounded toolkit for AI coding agents</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#e2e8f0">
+    <rect x="304" y="280" width="128" height="44" rx="22" fill="#ffffff" fill-opacity="0.08"/>
+    <text x="368" y="309" text-anchor="middle">agents</text>
+    <rect x="444" y="280" width="118" height="44" rx="22" fill="#ffffff" fill-opacity="0.08"/>
+    <text x="503" y="309" text-anchor="middle">skills</text>
+    <rect x="574" y="280" width="150" height="44" rx="22" fill="#ffffff" fill-opacity="0.08"/>
+    <text x="649" y="309" text-anchor="middle">commands</text>
+    <rect x="736" y="280" width="108" height="44" rx="22" fill="#ffffff" fill-opacity="0.08"/>
+    <text x="790" y="309" text-anchor="middle">rules</text>
+    <rect x="856" y="280" width="108" height="44" rx="22" fill="#ffffff" fill-opacity="0.08"/>
+    <text x="910" y="309" text-anchor="middle">hooks</text>
+  </g>
+  <text x="1230" y="370" text-anchor="end" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20">Claude Code · Codex · Cursor · Gemini CLI · OpenCode</text>
+</svg>

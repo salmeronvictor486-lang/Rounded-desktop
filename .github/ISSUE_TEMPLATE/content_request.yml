@@ -1,0 +1,18 @@
+name: Content request
+description: Suggest a new or better agent, skill, command or rule
+labels: [content]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [Agent, Skill, Command, Rule, Hook, Tool support]
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What should it help with?
+      description: The task or problem, and what the agent currently does wrong without it.
+    validations:
+      required: true

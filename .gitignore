@@ -1,8 +1,5 @@
-node_modules
-dist
-dev-dist
-test-results
-playwright-report
-*.log
+node_modules/
 .DS_Store
-tests/interop/.out
+*.log
+coverage/
+.tmp/

@@ -1,132 +1,202 @@
-# Rounded Desktop
+<p align="center">
+  <img src="assets/hero.svg" alt="Rounded — a well-rounded toolkit for AI coding agents" width="100%" />
+</p>
 
-**Suite ofimática gratuita, local y privada.** Documentos, hojas de cálculo,
-presentaciones y PDF en el navegador o instalada como aplicación, sin cuenta,
-sin anuncios y sin enviar tus archivos a ningún servidor.
+<p align="center">
+  <strong>Language:</strong> English | <a href="docs/es/README.md">Español</a>
+</p>
 
-| Aplicación | Para qué sirve | Formatos |
-|---|---|---|
-| **Rounded Scribe** | Procesador de textos | DOCX, ODT, RTF, HTML, Markdown, TXT, PDF (exportar) |
-| **Rounded Grid** | Hojas de cálculo con motor de fórmulas propio | XLSX, ODS, CSV, TSV |
-| **Rounded Stage** | Presentaciones con modo presentador | PPTX, PNG, PDF (exportar) |
-| **Rounded Folio** | Visor y herramientas PDF | PDF |
+<p align="center">
+  <a href="https://github.com/salmeronvictor486-lang/Rounded-desktop/actions/workflows/ci.yml"><img src="https://github.com/salmeronvictor486-lang/Rounded-desktop/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license" /></a>
+  <img src="https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white" alt="Node.js 18+" />
+  <img src="https://img.shields.io/badge/dependencies-0-brightgreen" alt="Zero runtime dependencies" />
+</p>
 
-La compatibilidad real, con sus límites y las pruebas que la respaldan, está en
-[`docs/FORMATS.md`](docs/FORMATS.md).
+<p align="center">
+  <img src="https://img.shields.io/badge/Claude%20Code-plugin-D97757" alt="Claude Code plugin" />
+  <img src="https://img.shields.io/badge/Codex%20CLI-supported-000000" alt="Codex CLI" />
+  <img src="https://img.shields.io/badge/Cursor-supported-1f2937" alt="Cursor" />
+  <img src="https://img.shields.io/badge/Gemini%20CLI-supported-4285F4" alt="Gemini CLI" />
+  <img src="https://img.shields.io/badge/OpenCode-beta-6b7280" alt="OpenCode" />
+</p>
 
----
+# Rounded
 
-## Qué incluye
+**Rounded turns a general-purpose AI coding agent into a disciplined teammate.** It bundles specialist agents, reusable skills, slash commands, always-on rules and safety hooks that encode how experienced engineers plan, test, review, secure and ship software — and installs them into the agent you already use.
 
-**Rounded Scribe**
-- Estilos de párrafo (títulos 1–4, cita, código), negrita, cursiva, subrayado,
-  tachado, superíndice, subíndice, color, resaltado, fuente y tamaño.
-- Alineación, interlineado, sangrías, espaciado, listas con viñetas y numeradas,
-  tablas (combinar, añadir/eliminar filas y columnas), imágenes,
-  enlaces, saltos de página, notas al pie e índice automático.
-- Configuración de página (tamaño, orientación, márgenes), encabezado, pie y
-  numeración de página al imprimir o exportar a PDF.
-- Buscar y reemplazar, recuento de palabras, deshacer/rehacer, pegar como
-  texto sin formato.
+- **12 agents** — planner, architect, code reviewer, security reviewer, TDD guide, build fixer, debugger and more.
+- **24 skills** — TDD, code review, security, debugging, API design, migrations, performance, CI, containers, and idiomatic TypeScript, Python, Go, Rust and React.
+- **18 commands** — `/plan`, `/tdd`, `/review`, `/verify`, `/debug`, `/checkpoint`, `/resume`, `/commit`, `/pr` and more.
+- **14 rules** — short, always-loaded guidelines (common + per-language).
+- **Safety hooks** — block catastrophic shell commands, stop secrets from being written to files, flag leftover debugging code, and carry context across sessions.
 
-**Rounded Grid**
-- Cuadrícula virtualizada (miles de filas fluidas), varias hojas, inmovilizar
-  filas y columnas, combinar celdas, ancho/alto ajustable.
-- Motor de fórmulas propio: unas 150 funciones (matemáticas, estadísticas,
-  lógicas, texto, búsqueda, fecha y hora, financieras), nombres en español
-  (`=SUMA`, `=SI`, `=BUSCARV`…), referencias relativas/absolutas/entre hojas,
-  recálculo incremental y detección de referencias circulares.
-- Formatos numéricos tipo Excel (moneda, porcentaje, fechas, personalizados),
-  formato condicional, validación de datos con listas, ordenar, filtros,
-  rellenar series, buscar y reemplazar, copiar/pegar con Excel y gráficos
-  (columnas, barras, líneas, área, circular, dispersión).
+Everything is plain Markdown plus a small, dependency-free Node.js installer. Read it, change it, keep what you like.
 
-**Rounded Stage**
-- Diapositivas con 8 diseños y 8 temas, cuadros de texto enriquecido, formas,
-  líneas y flechas, imágenes, tablas, fondos, notas del orador.
-- Mover, redimensionar, girar, alinear, distribuir, capas, copiar/pegar,
-  deshacer/rehacer.
-- Modo presentación a pantalla completa con transiciones, animaciones de
-  entrada, notas y navegación por teclado.
+> [!NOTE]
+> Rounded is a young project (v0.1). The hooks are a safety net, not a sandbox: keep using version control, reviews and least-privilege credentials.
 
-**Rounded Folio**
-- Visor con texto seleccionable, búsqueda y miniaturas.
-- Girar, reordenar, eliminar, insertar (combinar) y extraer (dividir) páginas.
-- Anotaciones: resaltado, tachado, recuadro, nota y texto libre; se incrustan
-  en el PDF al descargar.
+## Contents
 
-**Común**
-- Inicio con recientes, búsqueda, carpetas, destacados, papelera y plantillas.
-- Guardado automático, historial de versiones, recuperación tras cierre,
-  detección de conflictos entre pestañas y copias de seguridad (.zip).
-- 24 plantillas: currículums, cartas, informes, trabajos académicos, apuntes,
-  facturas y presupuestos, finanzas personales, planificación, proyectos,
-  inventario, educación, presentaciones de empresa, tecnología y portfolio.
-- Tema claro y oscuro, atajos de teclado, navegación con teclado y lector de
-  pantalla, diseño adaptado a móvil, instalable como PWA y funcionamiento sin
-  conexión.
+- [Quick start](#quick-start)
+- [What you get in each tool](#what-you-get-in-each-tool)
+- [How to use it](#how-to-use-it)
+- [Safety hooks](#safety-hooks)
+- [Installer reference](#installer-reference)
+- [Repository layout](#repository-layout)
+- [Contributing](#contributing) · [Security](#security) · [License](#license)
 
-## Empezar
+## Quick start
 
-Requisitos: **Node.js 20 o superior** y npm.
+### Claude Code (plugin, recommended)
 
-```bash
-npm install
-npm run dev          # servidor de desarrollo en http://localhost:5173
+Inside Claude Code:
+
+```text
+/plugin marketplace add salmeronvictor486-lang/Rounded-desktop
+/plugin install rounded@rounded
 ```
 
-Compilar la versión de producción (estática, en `dist/`):
+Restart Claude Code. The agents, skills, commands and hooks are now available; try `/rounded:plan add rate limiting to the login endpoint`.
+
+The plugin does not include the rules (Claude Code plugins cannot add always-on instructions). To add them, run the installer with `--only rules`:
 
 ```bash
-npm run build
-npm run preview      # sirve dist/ en http://localhost:4173
+npx github:salmeronvictor486-lang/Rounded-desktop install --only rules
 ```
 
-`dist/` se puede publicar en cualquier alojamiento estático (Netlify, GitHub
-Pages, Nginx…). Usa rutas con `#`, así que no necesita reglas de reescritura.
-Para empaquetarla como aplicación de escritorio, ver
-[`docs/DESKTOP.md`](docs/DESKTOP.md).
+### Any supported tool (installer)
 
-## Pruebas
+Requires Node.js 18 or newer. No global install needed:
 
-| Orden | Qué comprueba |
+```bash
+# Claude Code, everything in the core profile, into ~/.claude
+npx github:salmeronvictor486-lang/Rounded-desktop install
+
+# Several tools at once, with every agent and skill
+npx github:salmeronvictor486-lang/Rounded-desktop install --target claude,codex,gemini,opencode --profile full
+
+# Just one project (rules for the languages it uses are picked automatically)
+npx github:salmeronvictor486-lang/Rounded-desktop install --target cursor,claude --dir ./my-app
+```
+
+Or clone the repository and run `./install.sh` (macOS/Linux) or `.\install.ps1` (Windows) with the same options.
+
+Preview any change with `--dry-run`, and remove everything with `uninstall`.
+
+## What you get in each tool
+
+| | Claude Code | Codex CLI | Cursor | Gemini CLI | OpenCode (beta) |
+|---|---|---|---|---|---|
+| Agents | ✅ subagents | — | — | — | ✅ subagents |
+| Skills | ✅ | ✅ `.agents/skills` | — | — | — |
+| Commands | ✅ slash commands | — | ✅ `.cursor/commands` | ✅ TOML commands | ✅ |
+| Rules | ✅ imported from `CLAUDE.md` | ✅ `AGENTS.md` | ✅ `.mdc` rules | ✅ `GEMINI.md` | ✅ `AGENTS.md` |
+| Hooks | ✅ | — | — | — | — |
+| Scopes | user, project | user, project | project | user, project | user, project |
+
+Where a tool has no equivalent feature, Rounded leaves it out rather than faking it. Details: [docs/harnesses.md](docs/harnesses.md).
+
+## How to use it
+
+A typical feature, start to finish:
+
+```text
+/plan add CSV export to the reports page     → reads the code, writes .rounded/plan.md, waits for your OK
+/tdd export reports as CSV                   → failing test first, then the code, then refactor
+/review                                       → severity-ranked findings on your uncommitted changes
+/verify                                       → lint, types, tests, build, audit → ready / not ready
+/commit                                       → Conventional Commits message from the staged diff
+/pr                                           → pull request description with testing notes
+```
+
+Long task or end of the day? `/checkpoint` commits finished work and writes `.rounded/handoff.md`; the next session shows it automatically, and `/resume` picks up from there.
+
+Stuck on a bug? `/debug <symptom>` reproduces, bisects and proves the root cause before fixing it, and leaves a regression test behind.
+
+The full list of agents, skills, commands and rules is in the **[catalog](docs/CATALOG.md)**.
+
+### Profiles
+
+| Profile | Installs |
 |---|---|
-| `npm test` | Pruebas unitarias e integración (Vitest + jsdom): almacenamiento, motor de fórmulas, formatos numéricos, operaciones de hoja, ida y vuelta DOCX/XLSX/ODS/CSV/PPTX, operaciones PDF, plantillas. |
-| `npm run test:e2e` | Extremo a extremo con Playwright sobre la compilación de producción (ejecuta antes `npm run build`). Escritorio y móvil. |
-| `npm run test:interop` | Interoperabilidad con LibreOffice, python-docx, openpyxl y python-pptx (necesita esas herramientas instaladas). |
-| `npm run lint` · `npm run typecheck` | ESLint y TypeScript estricto. |
+| `core` (default) | six agents (planner, code-reviewer, security-reviewer, tdd-guide, build-fixer, debugger), the essential skills, nine everyday commands, common rules, hooks, plus language rules and skills for the languages you use |
+| `full` | everything |
 
-El plan de pruebas completo y cómo preparar el entorno de interoperabilidad
-están en [`docs/TESTING.md`](docs/TESTING.md).
+Language rules and skills follow `--languages typescript,python,go,rust`; for project installs they are detected from `package.json`, `pyproject.toml`, `go.mod` and `Cargo.toml`. React projects also get the React and accessibility skills.
 
-## Privacidad y seguridad
+## Safety hooks
 
-- Todo se guarda en el navegador (IndexedDB). No hay telemetría, analítica ni
-  peticiones a terceros; la política de seguridad de contenido (CSP) lo impide.
-- Las macros de documentos de Office nunca se ejecutan: se descartan y se avisa.
-- Los archivos importados se validan (tamaño, firma, ZIP y XML seguros) antes de
-  abrirlos.
+Hooks run on Claude Code events. They are small Node.js scripts with no dependencies, fail open (a hook bug never breaks your session) and are covered by tests.
 
-Detalles y modelo de amenazas en [`docs/SECURITY.md`](docs/SECURITY.md).
+| Hook | Event | What it does | Profile |
+|---|---|---|---|
+| `guard-bash` | before shell commands | **Blocks** `rm -rf /` and home/system folders, disk formatting, fork bombs, force-pushes to `main`/`master`/`release`. **Asks** before `git reset --hard`, `git clean -f`, other force-pushes, `--no-verify`, `curl \| sh`, publishing packages, `terraform destroy`, `DROP TABLE` | minimal |
+| `secret-scan` | before writing files | Refuses to write API keys, tokens, private keys and passwords in URLs into source files (asks for `.env` files) | minimal |
+| `guard-paths` | before writing files | Blocks edits inside `.git/`; asks before hand-editing lockfiles, installed dependencies and key files | standard |
+| `debug-statements` | after edits | Points out newly added `console.log`, `debugger`, `breakpoint()`, `dbg!` and similar | standard |
+| `session-start` | session start | Adds project facts (stack, branch, uncommitted changes, test/build commands) and your last handoff note | minimal |
+| `save-session` | before compaction, session end | Saves recent requests and changed files to `~/.rounded/sessions/` for the next session | minimal |
+| `stop-check` | before the agent finishes | Asks the agent to add tests when source files changed without any test change (once per stop) | strict |
 
-## Documentación
+Tune them with environment variables:
 
-- [`ARCHITECTURE.md`](ARCHITECTURE.md): decisiones técnicas, estructura y almacenamiento.
-- [`ROADMAP.md`](ROADMAP.md): estado de cada fase, pendientes y bloqueos.
-- [`docs/FORMATS.md`](docs/FORMATS.md): compatibilidad de formatos con evidencia.
-- [`docs/TESTING.md`](docs/TESTING.md): plan de pruebas.
-- [`docs/SECURITY.md`](docs/SECURITY.md): seguridad y dependencias.
-- [`docs/TEMPLATES.md`](docs/TEMPLATES.md): cómo añadir plantillas.
-- [`docs/DESKTOP.md`](docs/DESKTOP.md): empaquetado de escritorio.
-- [`docs/TROUBLESHOOTING.md`](docs/TROUBLESHOOTING.md): problemas frecuentes.
-- [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md): licencias de terceros.
+```bash
+export ROUNDED_HOOK_PROFILE=minimal   # minimal | standard (default) | strict
+export ROUNDED_DISABLED_HOOKS=debug-statements,guard-paths
+```
 
-## Licencias de terceros
+More in [docs/hooks.md](docs/hooks.md).
 
-Todas las dependencias incluidas en la aplicación tienen licencias permisivas
-(MIT, ISC, Apache-2.0, BSD, 0BSD, BlueOak, Unlicense; JSZip y DOMPurify se usan
-bajo su opción MIT y Apache-2.0 respectivamente). Lista completa en
-[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+## Installer reference
 
-Rounded Desktop no está afiliado a Microsoft, Google ni LibreOffice. Los nombres
-de formatos (DOCX, XLSX, PPTX…) se usan solo para indicar compatibilidad.
+```text
+rounded install   [options]   Install into one or more tools
+rounded uninstall [options]   Remove what Rounded installed (keeps files you edited)
+rounded list      [kind]      List agents, skills, commands, rules or targets
+rounded doctor                Check the environment and existing installations
+
+-t, --target <ids>     claude, codex, cursor, gemini, opencode or all (default: claude)
+-s, --scope <scope>    user or project (default: user; project when --dir is given)
+-d, --dir <path>       Project folder for project installs
+-p, --profile <name>   core or full (default: core)
+-l, --languages <ids>  typescript, python, go, rust (default: detected / all)
+    --only <kinds>     agents, skills, commands, rules, hooks
+    --no-hooks         Skip hooks
+-n, --dry-run          Show what would change without writing
+-f, --force            Overwrite or delete files even if you edited them
+```
+
+The installer never overwrites a file you created or edited unless you pass `--force`. Shared files (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `settings.json`) are edited only inside a clearly marked Rounded block or Rounded's own hook entries, and `uninstall` puts them back the way it found them. What was installed is recorded in `~/.rounded/installs/`.
+
+## Repository layout
+
+```text
+agents/            Subagent definitions (Markdown + front matter)
+skills/<name>/     Skills (SKILL.md)
+commands/          Slash commands
+rules/common/      Rules for every project
+rules/<language>/  Language rules (typescript, python, go, rust)
+hooks/             hooks.json and the hook scripts
+.claude-plugin/    Claude Code plugin and marketplace manifests
+src/, bin/         The installer CLI
+scripts/           validate.js, catalog.js
+tests/             node:test suites for hooks and installer
+docs/              Catalog, hooks, harnesses, authoring guide, translations
+```
+
+## Contributing
+
+Contributions are welcome: new skills, better agents, more languages and tools, translations. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and the [authoring guide](docs/authoring.md). Before opening a pull request:
+
+```bash
+npm run check   # validate content + run all tests
+```
+
+## Security
+
+Found a way around a hook, or a vulnerability in the installer? Please report it privately as described in [SECURITY.md](SECURITY.md).
+
+## License
+
+[MIT](LICENSE). Use it, fork it, adapt it to your team.

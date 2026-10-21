@@ -4,7 +4,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [0.1.0] - 2026-10-21
 
-First release of Rounded, an English toolkit for AI coding agents. It replaces the earlier Rounded Desktop office-suite prototype that lived in this repository (still available in the git history).
+First public release of Rounded.
 
 ### Added
 

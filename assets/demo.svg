@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="t d">
+  <title id="t">Rounded hooks in a Claude Code session</title>
+  <desc id="d">Session context at start, a force push to main blocked, and a hard-coded GitHub token blocked by the secret scanner.</desc>
+  <rect width="920" height="420" rx="16" fill="#0b1120"/>
+  <rect width="920" height="40" rx="16" fill="#1e293b"/>
+  <rect y="24" width="920" height="16" fill="#1e293b"/>
+  <circle cx="24" cy="20" r="6" fill="#f87171"/><circle cx="44" cy="20" r="6" fill="#fbbf24"/><circle cx="64" cy="20" r="6" fill="#34d399"/>
+  <text x="460" y="25" text-anchor="middle" fill="#94a3b8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13">claude — demo-shop</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14.5">
+    <text x="28" y="76" fill="#5eead4">● SessionStart</text><text x="160" y="76" fill="#e2e8f0">Rounded: project context</text>
+    <text x="48" y="98" fill="#94a3b8">Project: demo-shop (JavaScript (npm)) · Git: on main, 2 uncommitted change(s)</text>
+    <text x="48" y="120" fill="#94a3b8">Commands: test: npm test, build: npm run build</text>
+    <text x="48" y="142" fill="#94a3b8">Handoff note: Next: add the refund endpoint</text>
+
+    <text x="28" y="186" fill="#a78bfa">⏺ Bash</text><text x="104" y="186" fill="#e2e8f0">git push --force origin main</text>
+    <text x="48" y="208" fill="#f87171">✗ Rounded guard: Force-pushing to "main" rewrites shared history.</text>
+    <text x="64" y="230" fill="#fca5a5">Push to a feature branch and open a pull request instead.</text>
+
+    <text x="28" y="274" fill="#a78bfa">⏺ Write</text><text x="112" y="274" fill="#e2e8f0">src/config.js  export const token = "ghp_••••••••••••"</text>
+    <text x="48" y="296" fill="#f87171">✗ Rounded secret scan: this change contains what looks like a GitHub token (line 1).</text>
+    <text x="64" y="318" fill="#fca5a5">Read it from an environment variable or a secret manager instead of hard-coding it.</text>
+
+    <text x="28" y="362" fill="#34d399">✓</text><text x="48" y="362" fill="#e2e8f0">Nothing was pushed and no secret reached the disk.</text>
+  </g>
+  <text x="892" y="402" text-anchor="end" fill="#475569" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12">Hook messages captured from real Claude Code sessions</text>
+</svg>

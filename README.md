@@ -3,200 +3,367 @@
 </p>
 
 <p align="center">
-  <strong>Language:</strong> English | <a href="docs/es/README.md">Español</a>
+  <strong>Language:</strong>
+  English |
+  <a href="docs/es/README.md">Español</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/salmeronvictor486-lang/Rounded-desktop/actions/workflows/ci.yml"><img src="https://github.com/salmeronvictor486-lang/Rounded-desktop/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license" /></a>
-  <img src="https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white" alt="Node.js 18+" />
-  <img src="https://img.shields.io/badge/dependencies-0-brightgreen" alt="Zero runtime dependencies" />
+  <a href="https://github.com/salmeronvictor486-lang/Rounded-desktop/stargazers"><img src="https://img.shields.io/github/stars/salmeronvictor486-lang/Rounded-desktop?style=flat&color=5eead4" alt="GitHub stars" /></a>
+  <a href="https://github.com/salmeronvictor486-lang/Rounded-desktop/network/members"><img src="https://img.shields.io/github/forks/salmeronvictor486-lang/Rounded-desktop?style=flat&color=a78bfa" alt="GitHub forks" /></a>
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-f0abfc.svg" alt="PRs welcome" /></a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Claude%20Code-plugin-D97757" alt="Claude Code plugin" />
-  <img src="https://img.shields.io/badge/Codex%20CLI-supported-000000" alt="Codex CLI" />
-  <img src="https://img.shields.io/badge/Cursor-supported-1f2937" alt="Cursor" />
-  <img src="https://img.shields.io/badge/Gemini%20CLI-supported-4285F4" alt="Gemini CLI" />
-  <img src="https://img.shields.io/badge/OpenCode-beta-6b7280" alt="OpenCode" />
+  <img src="https://img.shields.io/badge/agents-12-0f766e" alt="12 agents" />
+  <img src="https://img.shields.io/badge/skills-24-0f766e" alt="24 skills" />
+  <img src="https://img.shields.io/badge/commands-18-0f766e" alt="18 commands" />
+  <img src="https://img.shields.io/badge/rules-14-0f766e" alt="14 rules" />
+  <img src="https://img.shields.io/badge/hooks-7-0f766e" alt="7 hooks" />
+  <img src="https://img.shields.io/badge/runtime%20dependencies-0-brightgreen" alt="Zero runtime dependencies" />
 </p>
 
-# Rounded
+<p align="center">
+  <img src="https://img.shields.io/badge/-Claude%20Code-D97757?logo=anthropic&logoColor=white" alt="Claude Code" />
+  <img src="https://img.shields.io/badge/-Codex%20CLI-000000?logo=openai&logoColor=white" alt="Codex CLI" />
+  <img src="https://img.shields.io/badge/-Cursor-1f2937?logo=cursor&logoColor=white" alt="Cursor" />
+  <img src="https://img.shields.io/badge/-Gemini%20CLI-4285F4?logo=googlegemini&logoColor=white" alt="Gemini CLI" />
+  <img src="https://img.shields.io/badge/-OpenCode-6b7280" alt="OpenCode" />
+  <img src="https://img.shields.io/badge/-Node.js%2018+-339933?logo=node.js&logoColor=white" alt="Node.js 18+" />
+</p>
 
-**Rounded turns a general-purpose AI coding agent into a disciplined teammate.** It bundles specialist agents, reusable skills, slash commands, always-on rules and safety hooks that encode how experienced engineers plan, test, review, secure and ship software — and installs them into the agent you already use.
+<h3 align="center">Your AI coding agent is fast. Rounded makes it careful.</h3>
 
-- **12 agents** — planner, architect, code reviewer, security reviewer, TDD guide, build fixer, debugger and more.
-- **24 skills** — TDD, code review, security, debugging, API design, migrations, performance, CI, containers, and idiomatic TypeScript, Python, Go, Rust and React.
-- **18 commands** — `/plan`, `/tdd`, `/review`, `/verify`, `/debug`, `/checkpoint`, `/resume`, `/commit`, `/pr` and more.
-- **14 rules** — short, always-loaded guidelines (common + per-language).
-- **Safety hooks** — block catastrophic shell commands, stop secrets from being written to files, flag leftover debugging code, and carry context across sessions.
+<p align="center">
+  Specialist agents, battle-tested skills, one-word workflows and safety hooks that encode how<br/>
+  senior engineers <strong>plan, test, review, secure and ship</strong> software — installed into the tool you already use.
+</p>
 
-Everything is plain Markdown plus a small, dependency-free Node.js installer. Read it, change it, keep what you like.
+<div align="center">
 
-> [!NOTE]
-> Rounded is a young project (v0.1). The hooks are a safety net, not a sandbox: keep using version control, reviews and least-privilege credentials.
+<table aria-label="Rounded primary links">
+<tr>
+<td width="25%" align="center">
+  <a href="#quick-start"><img src="assets/icons/rocket.svg" height="48" alt="" /><br /><strong>Quick start</strong></a><br />
+  <sub>Running in under a minute</sub>
+</td>
+<td width="25%" align="center">
+  <a href="docs/CATALOG.md"><img src="assets/icons/book.svg" height="48" alt="" /><br /><strong>Catalog</strong></a><br />
+  <sub>All agents, skills, commands</sub>
+</td>
+<td width="25%" align="center">
+  <a href="#safety-hooks"><img src="assets/icons/shield.svg" height="48" alt="" /><br /><strong>Safety hooks</strong></a><br />
+  <sub>Stop disasters before they run</sub>
+</td>
+<td width="25%" align="center">
+  <a href="CONTRIBUTING.md"><img src="assets/icons/heart.svg" height="48" alt="" /><br /><strong>Contribute</strong></a><br />
+  <sub>Skills, languages, translations</sub>
+</td>
+</tr>
+</table>
 
-## Contents
+</div>
 
-- [Quick start](#quick-start)
-- [What you get in each tool](#what-you-get-in-each-tool)
-- [How to use it](#how-to-use-it)
-- [Safety hooks](#safety-hooks)
-- [Installer reference](#installer-reference)
-- [Repository layout](#repository-layout)
-- [Contributing](#contributing) · [Security](#security) · [License](#license)
+<p align="center">
+  <img src="assets/demo.svg" alt="Rounded hooks in a Claude Code session: project context at start, a force push to main blocked, a hard-coded token blocked" width="92%" />
+</p>
 
-## Quick start
+---
 
-### Claude Code (plugin, recommended)
+## ✨ Why Rounded?
 
-Inside Claude Code:
+AI coding agents write code at incredible speed — and make the same mistakes a rushed junior would: skipping tests, guessing at bugs, hard-coding secrets, force-pushing over `main`, forgetting what they were doing after a long session. Rounded fixes the *process*, not the model.
+
+| Without Rounded | With Rounded |
+|---|---|
+| "Let me just start coding…" | `/plan` reads the code first and writes a step-by-step plan you approve |
+| Tests written last, if at all | `/tdd` drives every change red → green → refactor |
+| "The bug is probably here" | `/debug` reproduces, bisects and proves the root cause, then leaves a regression test |
+| Self-review is "looks good" | `/review` runs a severity-ranked review with a concrete failure scenario for every finding |
+| `git push --force origin main` | **Blocked** by `guard-bash` before it runs |
+| `const key = "sk_live_…"` | **Blocked** by `secret-scan`; the agent uses an environment variable |
+| Context lost after compaction | `save-session` + `/checkpoint` + `/resume` carry the thread across sessions |
+| One tool's config, copied by hand | One source of truth installed into **Claude Code, Codex, Cursor, Gemini CLI and OpenCode** |
+
+Everything is **plain Markdown** plus a **zero-dependency Node.js installer** — readable, forkable, yours.
+
+<a id="quick-start"></a>
+
+## 🚀 Quick start
+
+### Claude Code — install as a plugin (recommended)
 
 ```text
 /plugin marketplace add salmeronvictor486-lang/Rounded-desktop
 /plugin install rounded@rounded
 ```
 
-Restart Claude Code. The agents, skills, commands and hooks are now available; try `/rounded:plan add rate limiting to the login endpoint`.
+Restart Claude Code, then try:
 
-The plugin does not include the rules (Claude Code plugins cannot add always-on instructions). To add them, run the installer with `--only rules`:
+```text
+/rounded:plan add rate limiting to the login endpoint
+```
+
+Want the always-on rules too? Plugins cannot add `CLAUDE.md` instructions, so add them with one command:
 
 ```bash
 npx github:salmeronvictor486-lang/Rounded-desktop install --only rules
 ```
 
-### Any supported tool (installer)
-
-Requires Node.js 18 or newer. No global install needed:
+### Every other tool — one command
 
 ```bash
-# Claude Code, everything in the core profile, into ~/.claude
-npx github:salmeronvictor486-lang/Rounded-desktop install
+npx github:salmeronvictor486-lang/Rounded-desktop install --target claude,codex,gemini,opencode
+```
 
-# Several tools at once, with every agent and skill
-npx github:salmeronvictor486-lang/Rounded-desktop install --target claude,codex,gemini,opencode --profile full
+<details>
+<summary><strong>More install recipes</strong></summary>
 
-# Just one project (rules for the languages it uses are picked automatically)
+```bash
+# Everything (all 12 agents and 24 skills) instead of the core set
+npx github:salmeronvictor486-lang/Rounded-desktop install --profile full
+
+# One project only — languages are detected from package.json, pyproject.toml, go.mod, Cargo.toml
 npx github:salmeronvictor486-lang/Rounded-desktop install --target cursor,claude --dir ./my-app
+
+# Pick languages explicitly
+npx github:salmeronvictor486-lang/Rounded-desktop install --languages typescript,python
+
+# See exactly what would change, without writing anything
+npx github:salmeronvictor486-lang/Rounded-desktop install --target all --dry-run
+
+# Check your setup / remove everything
+npx github:salmeronvictor486-lang/Rounded-desktop doctor
+npx github:salmeronvictor486-lang/Rounded-desktop uninstall
 ```
 
-Or clone the repository and run `./install.sh` (macOS/Linux) or `.\install.ps1` (Windows) with the same options.
+Prefer a local clone? `git clone` the repository and run `./install.sh` (macOS/Linux) or `.\install.ps1` (Windows) with the same options.
 
-Preview any change with `--dry-run`, and remove everything with `uninstall`.
+</details>
 
-## What you get in each tool
+<details>
+<summary><strong>Is it safe to run on my existing setup?</strong></summary>
 
-| | Claude Code | Codex CLI | Cursor | Gemini CLI | OpenCode (beta) |
-|---|---|---|---|---|---|
-| Agents | ✅ subagents | — | — | — | ✅ subagents |
-| Skills | ✅ | ✅ `.agents/skills` | — | — | — |
-| Commands | ✅ slash commands | — | ✅ `.cursor/commands` | ✅ TOML commands | ✅ |
-| Rules | ✅ imported from `CLAUDE.md` | ✅ `AGENTS.md` | ✅ `.mdc` rules | ✅ `GEMINI.md` | ✅ `AGENTS.md` |
-| Hooks | ✅ | — | — | — | — |
-| Scopes | user, project | user, project | project | user, project | user, project |
+Yes — that was a design goal:
 
-Where a tool has no equivalent feature, Rounded leaves it out rather than faking it. Details: [docs/harnesses.md](docs/harnesses.md).
+- Files you created or edited are **never overwritten or deleted** unless you pass `--force`.
+- Shared files (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `settings.json`) are touched only inside a clearly marked Rounded block or Rounded's own hook entries.
+- `uninstall` restores them exactly as they were, and removes only what Rounded wrote.
+- Everything installed is recorded in `~/.rounded/installs/`, so upgrades remove what is no longer selected.
 
-## How to use it
+</details>
 
-A typical feature, start to finish:
+## 🧭 The workflow
+
+```mermaid
+flowchart LR
+    A["/plan<br/>read the code,<br/>agree on steps"] --> B["/tdd<br/>red → green →<br/>refactor"]
+    B --> C["/review<br/>severity-ranked<br/>findings"]
+    C --> D["/verify<br/>lint · types · tests<br/>build · audit"]
+    D --> E["/commit<br/>Conventional<br/>Commits"]
+    E --> F["/pr<br/>description +<br/>testing notes"]
+    C -. issues found .-> B
+    D -. red .-> G["/fix-build"]
+    G --> D
+```
+
+Long task or end of the day? **`/checkpoint`** commits finished work and writes `.rounded/handoff.md`. The next session shows it automatically, and **`/resume`** picks up exactly where you left off.
+
+## 📦 What's inside
 
 ```text
-/plan add CSV export to the reports page     → reads the code, writes .rounded/plan.md, waits for your OK
-/tdd export reports as CSV                   → failing test first, then the code, then refactor
-/review                                       → severity-ranked findings on your uncommitted changes
-/verify                                       → lint, types, tests, build, audit → ready / not ready
-/commit                                       → Conventional Commits message from the staged diff
-/pr                                           → pull request description with testing notes
+rounded/
+├── agents/           12 specialist subagents the main agent delegates to
+├── skills/           24 deep-dive playbooks loaded only when relevant
+├── commands/         18 one-word workflows: /plan, /tdd, /review, /verify, …
+├── rules/
+│   ├── common/       always-on engineering rules for every project
+│   └── typescript/ python/ go/ rust/   language rules, attached by file type
+├── hooks/            7 safety & continuity hooks (Node.js, zero dependencies)
+├── .claude-plugin/   Claude Code plugin + marketplace manifests
+└── bin/ src/         the installer for Claude Code, Codex, Cursor, Gemini CLI, OpenCode
 ```
 
-Long task or end of the day? `/checkpoint` commits finished work and writes `.rounded/handoff.md`; the next session shows it automatically, and `/resume` picks up from there.
+<details>
+<summary><strong>🤖 Agents — which one should I use?</strong></summary>
 
-Stuck on a bug? `/debug <symptom>` reproduces, bisects and proves the root cause before fixing it, and leaves a regression test behind.
-
-The full list of agents, skills, commands and rules is in the **[catalog](docs/CATALOG.md)**.
-
-### Profiles
-
-| Profile | Installs |
+| When you need to… | Agent |
 |---|---|
-| `core` (default) | six agents (planner, code-reviewer, security-reviewer, tdd-guide, build-fixer, debugger), the essential skills, nine everyday commands, common rules, hooks, plus language rules and skills for the languages you use |
-| `full` | everything |
+| Turn a request into an ordered, file-by-file plan | `planner` |
+| Choose between designs, record an ADR | `architect` |
+| Review a diff or branch before merging | `code-reviewer` |
+| Audit input handling, auth, secrets, dependencies | `security-reviewer` |
+| Build a feature or fix a bug test-first | `tdd-guide` |
+| Get a red build, type check or lint back to green | `build-fixer` |
+| Find the root cause of a bug or flaky test | `debugger` |
+| Clean up code without changing behaviour | `refactorer` |
+| Write and stabilise end-to-end browser tests | `e2e-tester` |
+| Bring docs, READMEs and changelogs in line with the code | `doc-writer` |
+| Make something measurably faster | `performance-analyst` |
+| Review schemas, migrations and queries | `database-reviewer` |
 
-Language rules and skills follow `--languages typescript,python,go,rust`; for project installs they are detected from `package.json`, `pyproject.toml`, `go.mod` and `Cargo.toml`. React projects also get the React and accessibility skills.
+</details>
 
-## Safety hooks
+<details>
+<summary><strong>🧠 Skills</strong></summary>
 
-Hooks run on Claude Code events. They are small Node.js scripts with no dependencies, fail open (a hook bug never breaks your session) and are covered by tests.
+| Area | Skills |
+|---|---|
+| Workflow | `tdd-workflow` · `writing-tests` · `code-review` · `systematic-debugging` · `refactoring-safely` · `git-workflow` · `context-management` |
+| Quality & safety | `security-review` · `error-handling` · `logging-and-observability` · `performance-profiling` · `dependency-hygiene` |
+| Design & data | `api-design` · `database-migrations` · `frontend-accessibility` |
+| Shipping | `ci-pipelines` · `containers-and-deploy` · `release-management` · `writing-docs` |
+| Languages | `typescript-patterns` · `python-patterns` · `go-patterns` · `rust-patterns` · `react-patterns` |
 
-| Hook | Event | What it does | Profile |
-|---|---|---|---|
-| `guard-bash` | before shell commands | **Blocks** `rm -rf /` and home/system folders, disk formatting, fork bombs, force-pushes to `main`/`master`/`release`. **Asks** before `git reset --hard`, `git clean -f`, other force-pushes, `--no-verify`, `curl \| sh`, publishing packages, `terraform destroy`, `DROP TABLE` | minimal |
-| `secret-scan` | before writing files | Refuses to write API keys, tokens, private keys and passwords in URLs into source files (asks for `.env` files) | minimal |
-| `guard-paths` | before writing files | Blocks edits inside `.git/`; asks before hand-editing lockfiles, installed dependencies and key files | standard |
-| `debug-statements` | after edits | Points out newly added `console.log`, `debugger`, `breakpoint()`, `dbg!` and similar | standard |
-| `session-start` | session start | Adds project facts (stack, branch, uncommitted changes, test/build commands) and your last handoff note | minimal |
-| `save-session` | before compaction, session end | Saves recent requests and changed files to `~/.rounded/sessions/` for the next session | minimal |
-| `stop-check` | before the agent finishes | Asks the agent to add tests when source files changed without any test change (once per stop) | strict |
+Skills cost almost nothing until they are needed: the agent sees a one-line description and loads the full playbook only when the task matches.
 
-Tune them with environment variables:
+</details>
+
+<details>
+<summary><strong>⚡ Commands cheat sheet</strong></summary>
+
+| Command | What it does |
+|---|---|
+| `/plan <change>` | Explore the code and write an approved, step-by-step plan |
+| `/tdd <behaviour>` | Implement test-first with a red-green-refactor loop |
+| `/review [base]` | Severity-ranked review of your changes |
+| `/security-check [area]` | Vulnerability and secret audit |
+| `/verify [quick\|full]` | Run every quality gate and give a ready / not-ready verdict |
+| `/fix-build [command]` | Fix a failing build honestly — no `@ts-ignore`, no skipped tests |
+| `/debug <symptom>` | Root cause with evidence, fix and regression test |
+| `/refactor <area>` | Behaviour-preserving cleanup protected by tests |
+| `/test-coverage [path]` | Find the riskiest untested code and test it |
+| `/commit` | Conventional Commits message from the staged diff |
+| `/pr [base]` | Pull request description with testing and risk notes |
+| `/checkpoint` · `/resume` | Save a handoff note · pick up from it |
+| `/explain <code>` · `/onboard` | Understand a flow · map an unfamiliar codebase |
+| `/docs` · `/deps-audit` · `/release-notes` | Sync docs · audit dependencies · draft release notes |
+
+</details>
+
+Full descriptions of all 12 agents, 24 skills, 18 commands and 14 rules: **[docs/CATALOG.md](docs/CATALOG.md)**.
+
+<a id="safety-hooks"></a>
+
+## 🛡️ Safety hooks
+
+Hooks run automatically on Claude Code events. They are tiny, fast, dependency-free scripts that **fail open** — a hook bug never breaks your session — and every rule is covered by tests.
+
+| Hook | When | What it does |
+|---|---|---|
+| 🧱 `guard-bash` | before shell commands | **Blocks** `rm -rf /` and home/system folders, disk wipes, fork bombs, force-pushes to `main`/`master`/`release`. **Asks** before `git reset --hard`, `git clean -f`, `--no-verify`, `curl \| sh`, `npm publish`, `terraform destroy`, `DROP TABLE`… |
+| 🔑 `secret-scan` | before writing files | Refuses API keys, tokens, private keys and passwords-in-URLs in source files (AWS, GitHub, Stripe, OpenAI, Anthropic, Slack and more) |
+| 🗂️ `guard-paths` | before writing files | Protects `.git/`; asks before hand-editing lockfiles and installed dependencies |
+| 🐛 `debug-statements` | after edits | Flags freshly added `console.log`, `debugger`, `breakpoint()`, `dbg!`… |
+| 🧭 `session-start` | session start | Injects project facts: stack, branch, uncommitted work, test/build commands, your handoff note |
+| 💾 `save-session` | compaction & session end | Remembers recent requests and changed files for next time |
+| ✅ `stop-check` | before finishing (strict) | Asks for tests when code changed without any test change |
 
 ```bash
-export ROUNDED_HOOK_PROFILE=minimal   # minimal | standard (default) | strict
-export ROUNDED_DISABLED_HOOKS=debug-statements,guard-paths
+export ROUNDED_HOOK_PROFILE=strict                 # minimal | standard (default) | strict
+export ROUNDED_DISABLED_HOOKS=debug-statements     # switch off individual hooks
 ```
 
-More in [docs/hooks.md](docs/hooks.md).
+Deep dive: **[docs/hooks.md](docs/hooks.md)**.
 
-## Installer reference
+## 🔌 Works with your tools
 
-```text
-rounded install   [options]   Install into one or more tools
-rounded uninstall [options]   Remove what Rounded installed (keeps files you edited)
-rounded list      [kind]      List agents, skills, commands, rules or targets
-rounded doctor                Check the environment and existing installations
+| | Claude Code | Codex CLI | Cursor | Gemini CLI | OpenCode <sup>beta</sup> |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Agents | ✅ | — | — | — | ✅ |
+| Skills | ✅ | ✅ | — | — | — |
+| Commands | ✅ | — | ✅ | ✅ | ✅ |
+| Rules | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Hooks | ✅ | — | — | — | — |
+| Install scope | user · project | user · project | project | user · project | user · project |
 
--t, --target <ids>     claude, codex, cursor, gemini, opencode or all (default: claude)
--s, --scope <scope>    user or project (default: user; project when --dir is given)
--d, --dir <path>       Project folder for project installs
--p, --profile <name>   core or full (default: core)
--l, --languages <ids>  typescript, python, go, rust (default: detected / all)
-    --only <kinds>     agents, skills, commands, rules, hooks
-    --no-hooks         Skip hooks
--n, --dry-run          Show what would change without writing
--f, --force            Overwrite or delete files even if you edited them
-```
+One source of truth, translated into each tool's native format (`.mdc` rules for Cursor, TOML commands for Gemini, `AGENTS.md` for Codex and OpenCode…). Where a tool has no equivalent feature, Rounded leaves it out instead of faking it. Details: **[docs/harnesses.md](docs/harnesses.md)**.
 
-The installer never overwrites a file you created or edited unless you pass `--force`. Shared files (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `settings.json`) are edited only inside a clearly marked Rounded block or Rounded's own hook entries, and `uninstall` puts them back the way it found them. What was installed is recorded in `~/.rounded/installs/`.
+## 🎛️ Profiles
 
-## Repository layout
+| Profile | You get |
+|---|---|
+| **`core`** (default) | The essentials: planner, code-reviewer, security-reviewer, tdd-guide, build-fixer and debugger; the workflow skills; nine everyday commands; common rules; hooks; plus language rules and skills for the languages you use |
+| **`full`** | Everything in the catalog |
 
-```text
-agents/            Subagent definitions (Markdown + front matter)
-skills/<name>/     Skills (SKILL.md)
-commands/          Slash commands
-rules/common/      Rules for every project
-rules/<language>/  Language rules (typescript, python, go, rust)
-hooks/             hooks.json and the hook scripts
-.claude-plugin/    Claude Code plugin and marketplace manifests
-src/, bin/         The installer CLI
-scripts/           validate.js, catalog.js
-tests/             node:test suites for hooks and installer
-docs/              Catalog, hooks, harnesses, authoring guide, translations
-```
+React projects automatically get the React and accessibility skills too.
 
-## Contributing
+## 💡 Key ideas
 
-Contributions are welcome: new skills, better agents, more languages and tools, translations. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and the [authoring guide](docs/authoring.md). Before opening a pull request:
+<details>
+<summary><strong>Agents, skills, commands, rules and hooks — what's the difference?</strong></summary>
+
+- **Agents** are specialists with their own instructions and tool permissions. The main agent hands them a focused job (review this diff, find this bug) and gets back a conclusion, keeping its own context clean.
+- **Skills** are playbooks — checklists, safe and unsafe patterns, commands — loaded only when the task matches their description.
+- **Commands** are one-word workflows you trigger on purpose: `/plan`, `/review`, `/verify`.
+- **Rules** are short, always-on standards (tests for every change, no secrets in code, Conventional Commits).
+- **Hooks** are code, not advice: they run on every tool call and can actually stop a dangerous action.
+
+</details>
+
+<details>
+<summary><strong>How much context does it cost?</strong></summary>
+
+Claude Code reports roughly **3.8k always-on tokens** for the full plugin — mostly one-line descriptions of skills and agents. Full playbooks load only when used. Rules are deliberately short (each under 60 lines; the validator enforces it), and the `core` profile installs less.
+
+</details>
+
+<details>
+<summary><strong>Do hooks make my agent completely safe?</strong></summary>
+
+No — they are a safety net, not a sandbox. They reliably catch the common, catastrophic mistakes with very few false positives, but a deliberately obfuscated command can get past any pattern matcher. Keep version control, reviews, branch protection and least-privilege credentials.
+
+</details>
+
+<details>
+<summary><strong>Can I customise it?</strong></summary>
+
+Absolutely. Every file is Markdown you can edit after installing (Rounded will not overwrite your edits), or fork the repository and adjust the source. The **[authoring guide](docs/authoring.md)** shows the format for each kind of content, and `npm run check` validates your changes.
+
+</details>
+
+## 🗺️ Roadmap
+
+- [x] 12 agents, 24 skills, 18 commands, 14 rules
+- [x] Safety & continuity hooks with profiles
+- [x] Installer for Claude Code, Codex CLI, Cursor, Gemini CLI and OpenCode
+- [ ] More languages: Java/Kotlin, C#, Ruby, PHP, Swift
+- [ ] More skills: GraphQL, mobile, data engineering, infrastructure as code
+- [ ] Hook support for more tools as they add hook systems
+- [ ] Translations of this page into more languages
+- [ ] Published npm package and a public plugin directory listing
+
+Ideas welcome — [open an issue](https://github.com/salmeronvictor486-lang/Rounded-desktop/issues/new/choose).
+
+## 🤝 Contributing
+
+New skills, sharper agents, more languages and tools, translations — all welcome. Read **[CONTRIBUTING.md](CONTRIBUTING.md)** and the **[authoring guide](docs/authoring.md)**, then:
 
 ```bash
-npm run check   # validate content + run all tests
+npm run catalog   # regenerate the catalog
+npm run check     # validate all content + run the test suite
 ```
 
-## Security
+Found a way around a hook or a vulnerability? Please report it privately — see **[SECURITY.md](SECURITY.md)**.
 
-Found a way around a hook, or a vulnerability in the installer? Please report it privately as described in [SECURITY.md](SECURITY.md).
+## ⭐ Star history
 
-## License
+<a href="https://star-history.com/#salmeronvictor486-lang/Rounded-desktop&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=salmeronvictor486-lang/Rounded-desktop&type=Date&theme=dark" />
+    <img alt="Star history chart" src="https://api.star-history.com/svg?repos=salmeronvictor486-lang/Rounded-desktop&type=Date" />
+  </picture>
+</a>
 
-[MIT](LICENSE). Use it, fork it, adapt it to your team.
+If Rounded saves you from one bad force-push, consider giving it a ⭐ — it helps other developers find it.
+
+## 📄 License
+
+[MIT](LICENSE) — free for personal and commercial use. Fork it, adapt it to your team, share what you build.
+
+<p align="center">
+  <img src="assets/icon.svg" width="40" alt="" /><br/>
+  <sub>Made for developers who want their AI to code like a senior engineer.</sub>
+</p>

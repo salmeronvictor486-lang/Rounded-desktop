@@ -1,4 +1,6 @@
+import type { JSONContent } from '@tiptap/core';
 import { decodeText, detectContainer } from '@/core/files/signature';
+import { isSafeImageSrc, isSafeLinkHref } from '@/core/files/validate';
 import { FileFormatError } from '@/core/files/errors';
 import { extensionOf, stripExtension } from '@/core/util/format';
 import type { ImportResult } from '@/app/types';
@@ -6,8 +8,33 @@ import { createEmptyDocument, type WriterContent } from '../model';
 
 export const WRITER_IMPORT_EXTENSIONS = ['docx', 'docm', 'dotx', 'odt', 'ott', 'rtf', 'txt', 'md', 'html', 'htm'];
 
+/**
+ * Elimina de un documento importado los enlaces con protocolos no permitidos (javascript:, data:, file:...)
+ * y las imágenes que no estén incrustadas. El editor ya no los mostraría, pero así tampoco se guardan ni se exportan.
+ */
+export function sanitizeImportedDoc(node: JSONContent, warnings: Set<string>): JSONContent | null {
+  if (node.type === 'image' && !isSafeImageSrc(String(node.attrs?.src ?? ''))) {
+    warnings.add('Se han quitado imágenes externas o no válidas.');
+    return null;
+  }
+  const marks = node.marks?.filter((m) => {
+    if (m.type !== 'link' || isSafeLinkHref(String(m.attrs?.href ?? ''))) return true;
+    warnings.add('Se han quitado enlaces con direcciones no permitidas (por ejemplo, javascript:).');
+    return false;
+  });
+  const content = node.content?.map((c) => sanitizeImportedDoc(c, warnings)).filter((c): c is JSONContent => !!c);
+  return { ...node, ...(node.marks ? { marks } : {}), ...(node.content ? { content } : {}) };
+}
+
 /** Importa un archivo de texto en cualquiera de los formatos admitidos. */
 export async function importWriterFile(name: string, bytes: Uint8Array): Promise<ImportResult<WriterContent>> {
+  const r = await importUnsanitized(name, bytes);
+  const warnings = new Set(r.warnings);
+  const doc = sanitizeImportedDoc(r.content.doc, warnings) ?? { type: 'doc', content: [] };
+  return { ...r, content: { ...r.content, doc }, warnings: Array.from(warnings) };
+}
+
+async function importUnsanitized(name: string, bytes: Uint8Array): Promise<ImportResult<WriterContent>> {
   const ext = extensionOf(name);
   const container = detectContainer(bytes);
   const base = stripExtension(name);
